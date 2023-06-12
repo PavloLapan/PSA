@@ -1,13 +1,15 @@
 import React from 'react';
 import Login from "./login";
 import Header from "./header";
+import CourseDetails from "./course-details";
 
 
 const Home = () => {
     return (
     <div>
         <Header/>
-        <Login />
+        <CourseDetails/>
+        {/*<Login />*/}
            Home
     </div>
 );
