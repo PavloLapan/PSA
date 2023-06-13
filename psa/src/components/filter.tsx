@@ -1,6 +1,6 @@
 import {Box, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from "@mui/material";
 import TextField from "@mui/material/TextField";
-import React, {ReactNode, useState} from "react";
+import React, {useState} from "react";
 
 type FilterProps = {
     sort: (sortBy: 'name' | 'date') => void;

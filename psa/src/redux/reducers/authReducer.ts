@@ -35,7 +35,7 @@ const authReducer = (state: AuthState = initialState, action: AuthAction): AuthS
             return {
                 ...state,
                 isAuthenticated: true,
-                obj:{
+                obj: {
                     email: action.payload.obj.email,
                     password: action.payload.obj.password
                 }
@@ -44,7 +44,7 @@ const authReducer = (state: AuthState = initialState, action: AuthAction): AuthS
         case 'LOGOUT':
             return {
                 ...state,
-                obj:{
+                obj: {
                     email: '',
                     password: ''
                 },

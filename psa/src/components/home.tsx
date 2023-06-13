@@ -64,20 +64,20 @@ const Home = () => {
 
     if (isLoading && courseList.length === 0) {
         return (
-            <Box sx={{ width: '100%', height: '100%', textAlign: 'center', mt: '20%' }}>
-                <CircularProgress />
+            <Box sx={{width: '100%', height: '100%', textAlign: 'center', mt: '20%'}}>
+                <CircularProgress/>
             </Box>
         );
     }
 
     return (
         <>
-            <Filter filter={handleSearch} sort={handleSort} />
+            <Filter filter={handleSearch} sort={handleSort}/>
             {courseList.length > 0 ? (
-                <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+                <Box sx={{display: 'flex', flexWrap: 'wrap'}}>
                     {courseList.map((course) => (
                         <div key={course.id} onClick={() => handleCourseClick(course)}>
-                            <CardItem name={course.name} date={course.date} />
+                            <CardItem name={course.name} date={course.date}/>
                         </div>
                     ))}
                 </Box>

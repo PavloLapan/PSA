@@ -1,15 +1,14 @@
 import React from 'react';
 
-import {  Card, CardContent, CardHeader, Typography } from "@mui/material";
+import {Card, CardContent, CardHeader, Typography} from "@mui/material";
 
-//@ts-ignore
-const CardItem = ({ name, date}) => {
+const CardItem = ({name, date}) => {
     return (
 
-        <Card variant="outlined" sx={{ maxWidth: 345, m: 1, cursor: 'pointer' }}>
+        <Card variant="outlined" sx={{maxWidth: 345, m: 1, cursor: 'pointer'}}>
             <CardHeader
                 title={name}
-                subheader={date > new Date().toLocaleDateString() ? `${date} passed`: `${date} upcoming`}
+                subheader={date > new Date().toLocaleDateString() ? `${date} passed` : `${date} upcoming`}
             />
 
             <CardContent>

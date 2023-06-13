@@ -1,5 +1,5 @@
-import { combineReducers} from 'redux';
-import authReducer, { AuthState } from './authReducer';
+import {combineReducers} from 'redux';
+import authReducer, {AuthState} from './authReducer';
 import courseReducer, {CourseState} from "./courseReducer";
 
 export interface RootState {
@@ -7,7 +7,7 @@ export interface RootState {
     course: CourseState;
 }
 
-const rootReducer= combineReducers({
+const rootReducer = combineReducers({
     auth: authReducer,
     course: courseReducer
 });

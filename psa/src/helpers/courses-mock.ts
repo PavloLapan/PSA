@@ -1,5 +1,3 @@
-
-
 export interface StudentCoursesProps {
     id: number,
     name: string,

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import TextField from '@mui/material/TextField';
 import {Box, Button, styled} from "@mui/material";
 import {useDispatch} from "react-redux";
-import { login } from '../redux/actions/authActions';
+import {login} from '../redux/actions/authActions';
 import {useNavigate} from "react-router-dom";
 
 const WrappedLogin = styled('div')(
@@ -55,7 +55,8 @@ const Login = () => {
                     />
 
                     <div style={{display: "flex", justifyContent: 'center'}}>
-                        <Button sx={{margin: '10px auto',  width: '25ch' }} variant="outlined" onClick={handleLogin}>Log in</Button>
+                        <Button sx={{margin: '10px auto', width: '25ch'}} variant="outlined" onClick={handleLogin}>Log
+                            in</Button>
                     </div>
 
                 </Box>
