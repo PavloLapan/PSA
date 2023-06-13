@@ -1,27 +1,30 @@
-import {Box, FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import {Box, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from "@mui/material";
 import TextField from "@mui/material/TextField";
-import React, {useState} from "react";
-import {useDispatch} from "react-redux";
-import {sortBy, filterBy} from "../redux/actions/filterAction";
+import React, {ReactNode, useState} from "react";
 
+type FilterProps = {
+    sort: (sortBy: 'name' | 'date') => void;
+    filter: (searchTerm: string) => void;
+};
 
-export const Filter = () => {
-    const dispatch = useDispatch();
+export const Filter = ({ sort, filter }: FilterProps) => {
     const [sortByName, setSortByName] = useState<string>('');
     const [filterByName, setFilterByName] = useState<string>('');
 
-    const handleSortByChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
-        setSortByName(event.target.value);
-        dispatch(filterBy(event.target.value));
+    const handleSortByChange = (event: SelectChangeEvent<string>) =>  {
+        const sortBy = event.target.value as 'name' | 'date';
+        setSortByName(sortBy);
+        sort(sortBy);
     };
 
     const handleFilterByChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setFilterByName(event.target.value);
-        dispatch(sortBy(event.target.value))
+        const searchTerm = event.target.value;
+        setFilterByName(searchTerm);
+        filter(searchTerm);
     };
 
-    return(
-        <Box sx={{marginBottom: 2, display: 'flex', m: 2, pl: 4}}>
+    return (
+        <Box sx={{ marginBottom: 2, display: 'flex', m: 2, pl: 4 }}>
             <TextField
                 label="Filter by Name"
                 value={filterByName}
@@ -29,7 +32,9 @@ export const Filter = () => {
             />
 
             <FormControl sx={{ minWidth: 100, pl: 2 }}>
-                <InputLabel sx={{ pl: 2 }} id="demo-simple-select-autowidth-label">Sort By:</InputLabel>
+                <InputLabel sx={{ pl: 2 }} id="demo-simple-select-autowidth-label">
+                    Sort By:
+                </InputLabel>
                 <Select
                     labelId="demo-simple-select-autowidth-label"
                     id="demo-simple-select-autowidth"
@@ -46,5 +51,6 @@ export const Filter = () => {
                 </Select>
             </FormControl>
         </Box>
-    )
+    );
 }
+

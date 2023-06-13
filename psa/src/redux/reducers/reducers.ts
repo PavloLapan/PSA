@@ -1,16 +1,15 @@
-import { combineReducers, Reducer } from 'redux';
+import { combineReducers} from 'redux';
 import authReducer, { AuthState } from './authReducer';
-import filterReducer, {FilterState} from "./filterReducer";
+import courseReducer, {CourseState} from "./courseReducer";
 
 export interface RootState {
     auth: AuthState;
-    filter: FilterState
+    course: CourseState;
 }
 
 const rootReducer= combineReducers({
     auth: authReducer,
-    filter: filterReducer
-
+    course: courseReducer
 });
 
 export default rootReducer;

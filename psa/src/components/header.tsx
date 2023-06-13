@@ -9,7 +9,7 @@ const Header = () => {
 
     const dispatch = useDispatch();
     const email = useSelector((state: RootState) => {
-        return state
+        return state.auth.obj.email
     });
     const navigate = useNavigate();
     const handleLogout = () => {
@@ -17,11 +17,10 @@ const Header = () => {
         navigate('/');
     };
 
-
     let initials
-    // if(email){
-    //     initials = email.substring(0, email.indexOf('@'));
-    // }
+    if(email){
+        initials = email.substring(0, email.indexOf('@'));
+    }
 
 
     return (

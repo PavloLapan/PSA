@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import {Box, Button, styled} from "@mui/material";
 import {useDispatch} from "react-redux";
 import { login } from '../redux/actions/authActions';
+import {useNavigate} from "react-router-dom";
 
 const WrappedLogin = styled('div')(
     () => `
@@ -17,9 +18,10 @@ const Login = () => {
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate()
     const handleLogin = () => {
-        const initials = 'JD'; // Default initials
         dispatch(login({email, password}));
+        navigate('/')
     };
 
     return (

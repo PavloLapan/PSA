@@ -9,15 +9,19 @@ import CourseDetails from "./components/course-details";
 import Home from "./components/home";
 import Login from "./components/login";
 import {RootState} from "./redux/reducers/reducers";
+import {Filter} from "./components/filter";
 
 
 const App = () => {
 
     return (
         <Router>
+            <Header/>
+
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/course/:id" element={<CourseDetails />} />
+                <Route path="/login" element={<Login />} />
             </Routes>
         </Router>
     );

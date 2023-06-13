@@ -1,21 +1,29 @@
 export interface AuthState {
     isAuthenticated: boolean;
-    login: string;
-    password: string
+    obj: {
+        email: string;
+        password: string
+    }
 
 }
 
 const initialState: AuthState = {
     isAuthenticated: false,
-    login: '',
-    password: ''
+    obj: {
+        email: '',
+        password: ''
+    }
+
 };
 
 type AuthAction = {
     type: 'LOGIN';
     payload: {
-        login: string;
-        password: string
+        obj: {
+            email: string;
+            password: string
+        }
+
     };
 } | {
     type: 'LOGOUT';
@@ -27,14 +35,19 @@ const authReducer = (state: AuthState = initialState, action: AuthAction): AuthS
             return {
                 ...state,
                 isAuthenticated: true,
-                login: action.payload.login,
-                password: action.payload.password
+                obj:{
+                    email: action.payload.obj.email,
+                    password: action.payload.obj.password
+                }
+
             };
         case 'LOGOUT':
             return {
                 ...state,
-                login:'',
-                password: '',
+                obj:{
+                    email: '',
+                    password: ''
+                },
                 isAuthenticated: false,
 
             };

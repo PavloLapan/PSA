@@ -3,7 +3,7 @@ import React from 'react';
 import {  Card, CardContent, CardHeader, Typography } from "@mui/material";
 
 //@ts-ignore
-const CardItem = ({ name, date, comment }) => {
+const CardItem = ({ name, date}) => {
     return (
 
         <Card variant="outlined" sx={{ maxWidth: 345, m: 1, cursor: 'pointer' }}>
