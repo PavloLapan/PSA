@@ -1,10 +1,9 @@
 import React from 'react';
-import TextField from '@mui/material/TextField';
-import { Box, Button, Card, CardContent, CardHeader, styled, Typography } from "@mui/material";
-import { StudentCoursesProps } from "../helpers/courses-mock";
+
+import {  Card, CardContent, CardHeader, Typography } from "@mui/material";
 
 //@ts-ignore
-const CardItem = ({ name, date, comment }) => { // Added curly braces around the function parameter
+const CardItem = ({ name, date, comment }) => {
 
 
 

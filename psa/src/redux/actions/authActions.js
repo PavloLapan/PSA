@@ -1,8 +1,8 @@
-export const login = (initials) => {
+export const login = (obj) => {
     return {
         type: 'LOGIN',
         payload: {
-            initials,
+            obj
         },
     };
 };

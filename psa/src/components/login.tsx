@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import TextField from '@mui/material/TextField';
 import {Box, Button, styled} from "@mui/material";
-
+import {useDispatch} from "react-redux";
+import { login } from '../redux/actions/authActions';
 
 const WrappedLogin = styled('div')(
     () => `
@@ -12,6 +13,14 @@ const WrappedLogin = styled('div')(
 `,
 );
 const Login = () => {
+
+    const dispatch = useDispatch();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const handleLogin = () => {
+        const initials = 'JD'; // Default initials
+        dispatch(login({email, password}));
+    };
 
     return (
         <>
@@ -31,6 +40,7 @@ const Login = () => {
                     <TextField
                         id="outlined-error"
                         label="Login"
+                        onChange={(e) => setEmail(e.target.value)}
                         defaultValue=""
                     />
 
@@ -38,9 +48,13 @@ const Login = () => {
                         id="outlined-error"
                         label="Password"
                         defaultValue=""
+                        onChange={(e) => setPassword(e.target.value)}
+                        type={"password"}
                     />
 
-                    <Button sx={{m: 2,  width: '25ch' }} variant="outlined">Log in</Button>
+                    <div style={{display: "flex", justifyContent: 'center'}}>
+                        <Button sx={{margin: '10px auto',  width: '25ch' }} variant="outlined" onClick={handleLogin}>Log in</Button>
+                    </div>
 
                 </Box>
             </WrappedLogin>
