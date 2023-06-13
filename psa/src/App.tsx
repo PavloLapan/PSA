@@ -12,11 +12,11 @@ import {RootState} from "./redux/reducers/reducers";
 
 
 const App = () => {
-    const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
+
     return (
         <Router>
             <Routes>
-                <Route path="/" element={isAuthenticated ? <Home /> : <Login />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/course/:id" element={<CourseDetails />} />
             </Routes>
         </Router>

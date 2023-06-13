@@ -5,10 +5,10 @@ import { logout } from '../redux/actions/authActions';
 import {RootState} from "../redux/reducers/reducers";
 import { useNavigate } from 'react-router-dom';
 const Header = () => {
+    const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
 
     const dispatch = useDispatch();
     const email = useSelector((state: RootState) => {
-        debugger
         return state
     });
     const navigate = useNavigate();
@@ -24,7 +24,6 @@ const Header = () => {
     // }
 
 
-    debugger
     return (
         <Box
         sx={{
@@ -32,7 +31,11 @@ const Header = () => {
         >
             <h3>Personal Student Account</h3>
             <p>{initials}</p>
-            <Button sx={{m: 2,  width: '25ch' }} variant="outlined" onClick={handleLogout}>Log out</Button>
+            {
+                isAuthenticated &&
+                <Button sx={{m: 2,  width: '25ch' }} variant="outlined" onClick={handleLogout}>Log out</Button>
+            }
+
         </Box>
     );
 };

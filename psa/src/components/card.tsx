@@ -4,12 +4,9 @@ import {  Card, CardContent, CardHeader, Typography } from "@mui/material";
 
 //@ts-ignore
 const CardItem = ({ name, date, comment }) => {
-
-
-
     return (
 
-        <Card variant="outlined" sx={{ maxWidth: 345, m: 1 }}>
+        <Card variant="outlined" sx={{ maxWidth: 345, m: 1, cursor: 'pointer' }}>
             <CardHeader
                 title={name}
                 subheader={date > new Date().toLocaleDateString() ? `${date} passed`: `${date} upcoming`}
